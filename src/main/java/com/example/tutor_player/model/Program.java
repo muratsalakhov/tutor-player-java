@@ -9,20 +9,20 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.List;
 
-
 @Getter
 @Setter
 @NodeEntity
-public class Frame {
+public class Program {
 
     @Id
     @GeneratedValue
     private Long id;
     private String identificator;
-    private String task;
-    private String hint;
-    private String pictureLink;
+    private String title;
+    private Double dragDelta;
+    private Integer imageHeight;
+    private Integer imageWidth;
 
-    @Relationship(type="ACTION", direction=Relationship.Direction.OUTGOING)
-    private List<Frame> frames;
+    @Relationship(type="STARTS_WITH", direction=Relationship.Direction.OUTGOING)
+    private Frame firstFrame;
 }

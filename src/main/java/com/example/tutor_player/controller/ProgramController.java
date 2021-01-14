@@ -1,7 +1,7 @@
-package com.example.tutor_player.resource;
+package com.example.tutor_player.controller;
 
-import com.example.tutor_player.model.Frame;
-import com.example.tutor_player.service.FrameService;
+import com.example.tutor_player.model.Program;
+import com.example.tutor_player.service.ProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/neo4j/frame")
-public class FrameResource {
+@RequestMapping("/neo4j/program")
+public class ProgramController {
 
     @Autowired
-    FrameService frameService;
+    ProgramService programService;
 
     @GetMapping
-    public Collection<Frame> getAll() {
-        return frameService.getAll();
+    public Collection<Program> getAll() {
+        return programService.getAll();
     }
 }
