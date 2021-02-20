@@ -1,9 +1,11 @@
 package com.example.tutor_player.controller;
 
 import com.example.tutor_player.model.Frame;
+import com.example.tutor_player.model.Program;
 import com.example.tutor_player.service.FrameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +21,10 @@ public class FrameController {
     @GetMapping
     public Collection<Frame> getAll() {
         return frameService.getAll();
+    }
+
+    @GetMapping("/{uuid}")
+    public Frame getByUuid(@PathVariable String uuid) {
+        return frameService.getByUuid(uuid);
     }
 }

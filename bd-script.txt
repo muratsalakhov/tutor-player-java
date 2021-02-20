@@ -1,0 +1,6 @@
+CREATE (:Program {uuid: "xyz1", name: "Получение пропуска",dragDelta: 32, pictureHeight: 1080, pictureWidth: 1920 })-[:STARTS_WITH]->(:Frame {uuid: "zxc1", taskText: "Откройте новую вкладку", hintText: "Нажмите на знак плюса", pictureLink: "frame-1.png"})-[:ACTION {uuid: "qwe1", actionType: "LeftMouseClick", xLeft: 10, xRight: 20, yLeft: 10, yRight: 20}]->(:Frame {uuid: "zxc2", taskText: "Прокрутите страницу вниз", hintText: "Покрутите колесико мыши", pictureLink: "frame-2.png"})-[:ACTION {uuid: "qwe2", actionType: "ScrollDown", xLeft: 10, xRight: 20, yLeft: 10, yRight: 20, ticks: 2, pictures: ["picture-1.png","picture-2.png"]}]->(:Frame {uuid: "zxc3", taskText: "Подтвердите выбор", hintText: "Нажмите клавишу enter", pictureLink: "frame-3.png"})
+
+MATCH (f:Frame {uuid: "zxc1"}) CREATE (f)-[:ACTION {uuid: "qwe3", actionType: "ScrollDown", xLeft: 10, xRight: 20, yLeft: 10, yRight: 20, ticks: 2, pictures: ["picture-1.png","picture-2.png"]}]->(:Frame {uuid: "zxc4", taskText: "Закройте программу", hintText: "Нажмите клавишу esc", pictureLink: "frame-4.png"})
+
+MATCH (p:Program {uuid: "xyz1"}), (f:Frame{uuid: "zxc1"}) CREATE (p)-[:CONTAINS]->(f)
+

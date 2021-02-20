@@ -8,6 +8,9 @@ import java.util.Collection;
 
 public interface FrameRepository extends Neo4jRepository<Frame, Long> {
 
+    //@Query("MATCH (f:Frame)-[a:ACTION]->(g:Frame) RETURN f,a,g")
     @Query("MATCH (f:Frame) RETURN f")
     Collection<Frame> getAllFrames();
+
+    Frame findByUuid(String uuid);
 }

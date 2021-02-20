@@ -16,4 +16,8 @@ public class ProgramService {
     public Collection<Program> getAll() {
         return programRepository.getAllPrograms();
     }
+
+    public Program getByUuid(String uuid) {
+        return programRepository.findByUuid(uuid);
+    }
 }
