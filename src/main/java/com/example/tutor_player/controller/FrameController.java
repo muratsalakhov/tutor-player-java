@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/neo4j/frame")
@@ -21,6 +22,11 @@ public class FrameController {
     @GetMapping
     public Collection<Frame> getAll() {
         return frameService.getAll();
+    }
+
+    @GetMapping("/getWithAction/{uuid}")
+    public Set<Frame> getByAction(@PathVariable String uuid) {
+        return frameService.getFramesByAction(uuid);
     }
 
     @GetMapping("/{uuid}")
