@@ -23,6 +23,6 @@ public class Frame {
     @Relationship(type="PREV_FRAME")
     private Set<Action> switchData;
 
-    @Relationship(type="SWITCH_TO")
-    private Set<Frame> nextFrames;
+    //@Relationship(type="SWITCH_TO")
+    //private Set<Frame> nextFrames;
 }
